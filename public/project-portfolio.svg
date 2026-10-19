@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" role="img" aria-label="Portfolio website visual">
+  <defs>
+    <linearGradient id="c" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1a1d"/>
+      <stop offset="1" stop-color="#040608"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="820" fill="url(#c)"/>
+  <rect x="110" y="112" width="740" height="540" fill="#081013" stroke="#eafffb" stroke-opacity=".16"/>
+  <rect x="110" y="112" width="740" height="64" fill="#101d20"/>
+  <circle cx="150" cy="145" r="8" fill="#7fe7d9" opacity=".9"/>
+  <circle cx="178" cy="145" r="8" fill="#dffff9" opacity=".52"/>
+  <circle cx="206" cy="145" r="8" fill="#dffff9" opacity=".28"/>
+  <rect x="160" y="238" width="300" height="34" fill="#dffff9" opacity=".82"/>
+  <rect x="160" y="298" width="440" height="18" fill="#dffff9" opacity=".2"/>
+  <rect x="160" y="336" width="360" height="18" fill="#dffff9" opacity=".14"/>
+  <rect x="160" y="432" width="176" height="52" fill="#7fe7d9" opacity=".8"/>
+  <rect x="532" y="236" width="236" height="300" fill="#13282b" stroke="#7fe7d9" stroke-opacity=".34"/>
+  <circle cx="650" cy="344" r="76" fill="#7fe7d9" opacity=".16"/>
+  <path d="M598 462h104l30 74H568z" fill="#dffff9" opacity=".18"/>
+  <rect x="160" y="586" width="608" height="1" fill="#dffff9" opacity=".22"/>
+  <text x="160" y="630" fill="#7fe7d9" font-family="Arial, sans-serif" font-size="24" font-weight="700">REACT + VITE</text>
+</svg>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM Harness | AI Product Workflow Case</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../case-theme.css">
+  <script src="../case-theme.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">PM</span>
+          <span class="brand-text">Harness</span>
+        </div>
+        <div class="nav-links">
+          <a href="#overview">概述</a>
+          <a href="#architecture">架构</a>
+          <a href="#workflow">流程</a>
+          <a href="#artifacts">产出</a>
+          <a href="#value">价值</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Product Manager Workflow</p>
+          <h1>PM Harness</h1>
+          <p class="hero-summary">
+            一个面向 AI 产品定义阶段的工作流框架：把模糊想法拆成可评审、可追踪、可交接的产品文档。
+            重点不是“生成一份 PRD”，而是控制需求澄清、范围收敛、独立评审和交接标准。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#architecture">查看架构</a>
+            <a class="button secondary" href="HARNESS.md" target="_blank" rel="noreferrer">打开 HARNESS.md</a>
+          </div>
+          <ul class="hero-tags">
+            <li>AI Product</li>
+            <li>Harness Design</li>
+            <li>Workflow Control</li>
+            <li>Product Spec</li>
+          </ul>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="panel-label">Project Snapshot</p>
+          <div class="metric-grid">
+            <article>
+              <span class="metric-number">6</span>
+              <span class="metric-label">阶段模块</span>
+            </article>
+            <article>
+              <span class="metric-number">3</span>
+              <span class="metric-label">质量门禁</span>
+            </article>
+            <article>
+              <span class="metric-number">4</span>
+              <span class="metric-label">核心文档</span>
+            </article>
+            <article>
+              <span class="metric-number">1</span>
+              <span class="metric-label">总控规则</span>
+            </article>
+          </div>
+          <div class="panel-note">
+            <p>定位：AI 产品经理前期定义工具</p>
+            <p>目标：减少需求发散，提升文档可执行性</p>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section links-section" id="links">
+        <div class="section-heading">
+          <p class="eyebrow">Project Links</p>
+          <h2>项目入口</h2>
+        </div>
+        <div class="links-layout">
+          <article class="repo-card">
+            <p class="eyebrow small">Main Entry</p>
+            <h3>GitHub 仓库</h3>
+            <p>
+              项目以文档和规则文件为核心，展示如何把产品定义流程拆成可复用的阶段模块。
+            </p>
+            <a class="button secondary" href="https://github.com/part33/-skill" target="_blank" rel="noreferrer">查看 GitHub 仓库</a>
+          </article>
+          <div class="artifact-links">
+            <a class="doc-link" href="HARNESS.md" target="_blank" rel="noreferrer">
+              <span class="doc-name">HARNESS.md</span>
+              <span class="doc-desc">总控规则：阶段路由、输入输出、门禁标准</span>
+            </a>
+            <a class="doc-link" href="Product-Spec.md" target="_blank" rel="noreferrer">
+              <span class="doc-name">Product-Spec.md</span>
+              <span class="doc-desc">产品定义：用户、场景、范围、功能和成功标准</span>
+            </a>
+            <a class="doc-link" href="PM-Decision-Log.md" target="_blank" rel="noreferrer">
+              <span class="doc-name">PM-Decision-Log.md</span>
+              <span class="doc-desc">决策记录：记录删减、收窄和取舍依据</span>
+            </a>
+            <a class="doc-link" href="Handoff-Goals.md" target="_blank" rel="noreferrer">
+              <span class="doc-name">Handoff-Goals.md</span>
+              <span class="doc-desc">交接目标：把文档转成下一阶段可执行目标</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section story">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Definition</p>
+          <h2>要解决的问题</h2>
+        </div>
+        <div class="story-grid">
+          <article class="story-card accent">
+            <h3>AI 能写文档，但不一定能控产品</h3>
+            <p>
+              单次生成式 prompt 容易产出“看起来完整”的 PRD，但需求边界、用户价值和 MVP 范围常常没有被真正验证。
+            </p>
+          </article>
+          <article class="story-card">
+            <h3>主要风险</h3>
+            <ul>
+              <li>目标用户和使用场景模糊。</li>
+              <li>第一版范围过大，功能堆叠。</li>
+              <li>文档缺少评审，模糊描述被直接交接。</li>
+              <li>关键取舍没有记录，后续难复盘。</li>
+            </ul>
+          </article>
+          <article class="story-card">
+            <h3>我的解决方式</h3>
+            <p>
+              把 AI 产品定义拆成阶段化工作流，用 Harness 负责路由、门禁和回退，而不是只依赖一个“万能 PRD prompt”。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section architecture" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>Harness 架构</h2>
+        </div>
+        <div class="architecture-layout">
+          <div class="diagram-card">
+            <div class="diagram-step">Input<div>一句模糊想法、业务方向或产品机会</div></div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-step">Clarify<div>澄清用户、场景、痛点和目标</div></div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-step">Scope<div>收敛 MVP，明确做/不做/后置</div></div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-step">Build Spec<div>生成结构化 Product Spec</div></div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-step">Review Gate<div>独立评审模糊项、冲突项、不可执行项</div></div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-step">Handoff<div>输出下一阶段目标和交接说明</div></div>
+          </div>
+          <div class="architecture-notes">
+            <article>
+              <h3>Skill 负责能力</h3>
+              <p>每个 Skill 处理一个明确任务，如澄清、收敛、写文档或审查。</p>
+            </article>
+            <article>
+              <h3>Harness 负责控制</h3>
+              <p>决定阶段顺序、是否允许进入下一步、哪些信息必须补齐。</p>
+            </article>
+            <article>
+              <h3>文档负责沉淀</h3>
+              <p>用 Spec、Decision Log 和 Handoff Goals 让产品判断可复查、可交接。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section framework">
+        <div class="section-heading">
+          <p class="eyebrow">Modules</p>
+          <h2>六个阶段模块</h2>
+        </div>
+        <div class="framework-grid">
+          <article class="skill-card">
+            <span>01</span>
+            <h3>Idea Clarifier</h3>
+            <p>把想法转成用户、场景、问题和目标。</p>
+          </article>
+          <article class="skill-card">
+            <span>02</span>
+            <h3>Market Scoper</h3>
+            <p>判断替代方案和产品存在价值。</p>
+          </article>
+          <article class="skill-card">
+            <span>03</span>
+            <h3>MVP Definer</h3>
+            <p>控制第一版范围，避免功能膨胀。</p>
+          </article>
+          <article class="skill-card">
+            <span>04</span>
+            <h3>Spec Builder</h3>
+            <p>输出结构化 Product Spec。</p>
+          </article>
+          <article class="skill-card">
+            <span>05</span>
+            <h3>Spec Reviewer</h3>
+            <p>独立检查模糊、矛盾和不可执行项。</p>
+          </article>
+          <article class="skill-card">
+            <span>06</span>
+            <h3>Goal Writer</h3>
+            <p>把评审后的文档转为交接目标。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section workflow" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>运行逻辑</h2>
+        </div>
+        <div class="workflow-shell">
+          <div class="workflow-intro">
+            <p class="workflow-label">Operating Principle</p>
+            <h3>先收敛，再生成；先评审，再交接。</h3>
+            <p>
+              这套流程把 AI 从“内容生成器”限制为“按阶段推进的产品协作者”，每一步都有明确输入、输出和完成标准。
+            </p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <h4>1 · Clarify</h4>
+              <p>不直接写 PRD，先补齐用户、场景、问题和目标。</p>
+            </li>
+            <li>
+              <h4>2 · Scope</h4>
+              <p>区分必须做、可以后置、本轮不做，控制 MVP。</p>
+            </li>
+            <li>
+              <h4>3 · Build</h4>
+              <p>把收敛后的信息整理成结构化产品文档。</p>
+            </li>
+            <li>
+              <h4>4 · Review</h4>
+              <p>独立评审文档质量，修正模糊和不可执行表达。</p>
+            </li>
+            <li>
+              <h4>5 · Handoff</h4>
+              <p>把通过评审的 Spec 转成下一阶段可执行目标。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section artifacts" id="artifacts">
+        <div class="section-heading">
+          <p class="eyebrow">Artifacts</p>
+          <h2>核心产出</h2>
+        </div>
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <h3>HARNESS.md</h3>
+            <p>总控规则，定义阶段顺序和门禁。</p>
+          </article>
+          <article class="artifact-card">
+            <h3>Product-Spec.md</h3>
+            <p>产品定义，承载最终可交接文档。</p>
+          </article>
+          <article class="artifact-card">
+            <h3>PM-Decision-Log.md</h3>
+            <p>决策记录，保留范围取舍依据。</p>
+          </article>
+          <article class="artifact-card">
+            <h3>Handoff-Goals.md</h3>
+            <p>交接目标，连接设计或开发阶段。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section takeaway" id="value">
+        <div class="section-heading">
+          <p class="eyebrow">Value</p>
+          <h2>体现的产品能力</h2>
+        </div>
+        <div class="takeaway-grid">
+          <article>
+            <h3>流程抽象</h3>
+            <p>把非结构化产品思考拆成可执行阶段和规则。</p>
+          </article>
+          <article>
+            <h3>范围控制</h3>
+            <p>通过 MVP 和门禁机制防止功能膨胀。</p>
+          </article>
+          <article>
+            <h3>质量意识</h3>
+            <p>把评审、留痕和交接作为 AI 产品工作流的一部分。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

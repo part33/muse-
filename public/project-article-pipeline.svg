@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" role="img" aria-label="Article generation pipeline visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11172a"/>
+      <stop offset=".52" stop-color="#071018"/>
+      <stop offset="1" stop-color="#172314"/>
+    </linearGradient>
+    <radialGradient id="halo" cx=".6" cy=".38" r=".58">
+      <stop offset="0" stop-color="#e5dbff" stop-opacity=".4"/>
+      <stop offset=".46" stop-color="#7fe7d9" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#05070d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bca8ff"/>
+      <stop offset="1" stop-color="#7fe7d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="820" fill="url(#bg)"/>
+  <rect width="960" height="820" fill="url(#halo)"/>
+  <g opacity=".18" stroke="#fff" stroke-width="1">
+    <path d="M82 148h796M82 296h796M82 444h796M82 592h796"/>
+    <path d="M154 92v636M312 92v636M470 92v636M628 92v636M786 92v636"/>
+  </g>
+  <g>
+    <rect x="136" y="150" width="238" height="430" rx="24" fill="#0a0e19" stroke="#bca8ff" stroke-opacity=".42"/>
+    <rect x="136" y="150" width="238" height="72" rx="24" fill="#bca8ff" opacity=".12"/>
+    <text x="178" y="196" fill="#f7f6ff" font-family="Arial, sans-serif" font-size="26" font-weight="700">SOURCE.md</text>
+    <rect x="178" y="270" width="154" height="18" fill="#e5dbff" opacity=".22"/>
+    <rect x="178" y="318" width="108" height="18" fill="#e5dbff" opacity=".14"/>
+    <rect x="178" y="366" width="164" height="18" fill="#e5dbff" opacity=".18"/>
+    <rect x="178" y="454" width="120" height="18" fill="#7fe7d9" opacity=".22"/>
+  </g>
+  <g>
+    <rect x="586" y="150" width="238" height="430" rx="24" fill="#0a0e19" stroke="#7fe7d9" stroke-opacity=".42"/>
+    <rect x="586" y="150" width="238" height="72" rx="24" fill="#7fe7d9" opacity=".1"/>
+    <text x="630" y="196" fill="#f7f6ff" font-family="Arial, sans-serif" font-size="26" font-weight="700">ARTICLE.html</text>
+    <rect x="628" y="270" width="154" height="18" fill="#e5dbff" opacity=".22"/>
+    <rect x="628" y="318" width="108" height="18" fill="#e5dbff" opacity=".14"/>
+    <rect x="628" y="366" width="164" height="18" fill="#e5dbff" opacity=".18"/>
+    <rect x="628" y="454" width="120" height="18" fill="#7fe7d9" opacity=".22"/>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M404 306h106" stroke-width="8"/>
+    <path d="M510 306l-32-32M510 306l-32 32" stroke-width="8"/>
+    <path d="M404 414h106" stroke-width="8" opacity=".62"/>
+    <path d="M510 414l-32-32M510 414l-32 32" stroke-width="8" opacity=".62"/>
+  </g>
+  <g>
+    <circle cx="480" cy="620" r="72" fill="#0d1522" stroke="#bca8ff" stroke-opacity=".42"/>
+    <path d="M442 620l25 25 54-62" fill="none" stroke="#7fe7d9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="330" y="732" fill="#7fe7d9" font-family="Arial, sans-serif" font-size="22" font-weight="700">MARKDOWN / RENDER / REVIEW</text>
+  </g>
+</svg>

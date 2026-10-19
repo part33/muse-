@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计前置 | 项目详情页</title>
+  <style>
+    :root {
+      --bg: #f5efe2;
+      --paper: rgba(255, 252, 245, 0.92);
+      --ink: #1f1b16;
+      --muted: #645b52;
+      --line: rgba(31, 27, 22, 0.12);
+      --accent: #c85f35;
+      --accent-deep: #8f3f1f;
+      --accent-soft: rgba(200, 95, 53, 0.14);
+      --shadow: 0 24px 60px rgba(68, 40, 20, 0.14);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --content-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(214, 137, 84, 0.25), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(157, 118, 79, 0.16), transparent 20%),
+        linear-gradient(180deg, #fbf6ee 0%, #f2e7d3 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(31, 27, 22, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 27, 22, 0.025) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      padding: 56px 0 32px;
+    }
+
+    .hero-card,
+    .section-card {
+      background: var(--paper);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      border-radius: 36px;
+      padding: 44px;
+      overflow: hidden;
+      position: relative;
+      animation: rise 700ms ease-out both;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -90px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 95, 53, 0.2), transparent 62%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(200, 95, 53, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(44px, 6vw, 86px);
+      line-height: 0.96;
+      max-width: 9ch;
+    }
+
+    .subtitle {
+      margin: 20px 0 28px;
+      max-width: 720px;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.7;
+      color: #312a23;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .meta-box {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+    }
+
+    .meta-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .meta-box p {
+      margin: 0;
+      line-height: 1.75;
+      color: #2c251e;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .grid {
+      margin-bottom: 60px;
+    }
+
+    .content-stack {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .section-card {
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      animation: rise 760ms ease-out both;
+    }
+
+    .section-card.compact {
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-card:nth-child(2) { animation-delay: 50ms; }
+    .section-card:nth-child(3) { animation-delay: 100ms; }
+    .section-card:nth-child(4) { animation-delay: 150ms; }
+    .section-card:nth-child(5) { animation-delay: 200ms; }
+
+    .section-title {
+      font-size: clamp(28px, 3vw, 40px);
+      margin-bottom: 18px;
+    }
+
+    .section-card p {
+      margin: 0 0 16px;
+      line-height: 1.9;
+      color: #362f28;
+      font-size: 16px;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: #362f28;
+    }
+
+    .list li {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .mini-box {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .mini-box strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .mini-box code {
+      font-family: Consolas, "SFMono-Regular", "Cascadia Code", monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #2f2922;
+      white-space: pre-line;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .kpi {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      margin-bottom: 6px;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .quote {
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      background: rgba(200, 95, 53, 0.08);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: #352c25;
+      line-height: 1.85;
+      margin-top: 18px;
+    }
+
+    .code-block {
+      margin: 18px 0 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(18, 14, 10, 0.12);
+      background: #1d1915;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .code-bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 14px 18px;
+      background: #2a241f;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot.red { background: #e96a5d; }
+    .dot.gold { background: #e7b24d; }
+    .dot.green { background: #5bc36c; }
+
+    pre {
+      margin: 0;
+      padding: 20px;
+      overflow-x: auto;
+      color: #f6ebdc;
+      font-size: 14px;
+      line-height: 1.75;
+      font-family: Consolas, "SFMono-Regular", "Cascadia Code", monospace;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      box-shadow: 0 14px 24px rgba(200, 95, 53, 0.22);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      background: #b4512b;
+      box-shadow: 0 18px 28px rgba(200, 95, 53, 0.28);
+    }
+
+    .cta-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      padding: 0 0 56px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hero-meta,
+      .content-stack,
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .section-card {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(var(--content-width), calc(100% - 20px));
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .hero-card {
+        border-radius: 28px;
+        padding: 22px;
+      }
+
+      .section-card {
+        border-radius: 22px;
+        padding: 22px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .cta {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../case-theme.css">
+  <script src="../case-theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <section class="hero-card">
+        <span class="eyebrow">Portfolio Case Study</span>
+        <h1>设计前置</h1>
+        <p class="subtitle">
+          一个为 Codex 设计的中文工作流 skill，用于在编码前完成需求澄清、方案比较与设计输出。
+        </p>
+
+        <div class="tag-row" aria-label="项目标签">
+          <span class="tag">AI Workflow</span>
+          <span class="tag">Developer Tooling</span>
+          <span class="tag">Product Thinking</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="cta" href="https://github.com/part33/skillskills" target="_blank" rel="noreferrer">查看 GitHub</a>
+          <p class="cta-note">独立仓库承载，便于和其他 skill 分开展示。</p>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-box">
+            <div class="meta-label">项目简介</div>
+            <p>
+              我把“先想清楚再动手”的开发习惯整理成可复用的 AI skill，帮助个人项目在实现前先对齐目标、范围和方案。
+            </p>
+          </div>
+          <div class="meta-box">
+            <div class="meta-label">适用场景</div>
+            <p>
+              个人项目规划、新功能设计、范围拆分、方案比较、设计文档草稿。
+            </p>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="grid">
+      <div class="content-stack">
+        <section class="section-card compact">
+          <h2 class="section-title">核心能力</h2>
+          <ul class="list">
+            <li>先看上下文，再进入需求澄清。</li>
+            <li>一次只问一个关键问题，降低沟通负担。</li>
+            <li>默认提供 2-3 种方案，并给出推荐。</li>
+            <li>支持轻量模式与完整模式两种设计深度。</li>
+            <li>在用户确认前，不进入实现阶段。</li>
+          </ul>
+        </section>
+
+        <section class="section-card compact">
+          <h2 class="section-title">我做了什么</h2>
+          <ul class="list">
+            <li>将原始草稿整理成可安装、可复用的 skill 结构。</li>
+            <li>重写中文 `SKILL.md` 与展示元数据。</li>
+            <li>加入轻量模式、完整模式和触发示例。</li>
+            <li>补充输出模板与视觉辅助说明。</li>
+            <li>完成本地安装、GitHub 上传和作品集详情页展示。</li>
+          </ul>
+        </section>
+
+        <section class="section-card compact">
+          <h2 class="section-title">项目速览</h2>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <strong>CN</strong>
+              <span>中文 skill 设计</span>
+            </div>
+            <div class="kpi">
+              <strong>2</strong>
+              <span>两种工作流模式</span>
+            </div>
+            <div class="kpi">
+              <strong>3</strong>
+              <span>参考说明文件</span>
+            </div>
+            <div class="kpi">
+              <strong>1</strong>
+              <span>个人方法论工具化</span>
+            </div>
+          </div>
+          <p>
+            面向个人项目规划、新功能设计、范围拆分、方案比较和设计文档草稿。
+          </p>
+        </section>
+
+        <section class="section-card compact">
+          <h2 class="section-title">结构与调用</h2>
+          <p>
+            采用标准 skill 目录结构，包含主说明、展示元数据与参考资源，便于安装、复用和展示。
+          </p>
+          <div class="mini-stack">
+            <div class="mini-box">
+              <strong>结构</strong>
+              <code>SKILL.md
+agents/openai.yaml
+references/*</code>
+            </div>
+            <div class="mini-box">
+              <strong>调用</strong>
+              <code>Use $she-ji-qian-zhi
+帮我先梳理这个项目方案</code>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <p class="footer-note">
+      这个页面可以直接作为个人作品集中的项目详情页使用。
+    </p>
+  </div>
+</body>
+</html>

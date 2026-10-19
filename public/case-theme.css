@@ -1,0 +1,380 @@
+:root {
+  --case-bg: #05060d;
+  --case-panel: rgba(12, 11, 24, 0.82);
+  --case-panel-strong: rgba(17, 16, 34, 0.92);
+  --case-line: rgba(218, 214, 255, 0.16);
+  --case-line-strong: rgba(218, 214, 255, 0.3);
+  --case-text: #f7f6ff;
+  --case-muted: rgba(232, 229, 247, 0.66);
+  --case-faint: rgba(232, 229, 247, 0.44);
+  --case-accent: #bca8ff;
+  --case-accent-2: #7fe7d9;
+  --case-mouse-x: 50vw;
+  --case-mouse-y: 32vh;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--case-bg) !important;
+}
+
+body.case-theme-page {
+  min-width: 1180px;
+  margin: 0;
+  color: var(--case-text) !important;
+  background:
+    radial-gradient(circle at var(--case-mouse-x) var(--case-mouse-y), rgba(188, 168, 255, 0.18), transparent 26rem),
+    radial-gradient(circle at 24% 18%, rgba(127, 231, 217, 0.1), transparent 24rem),
+    linear-gradient(180deg, #05060d 0%, #080813 54%, #03040a 100%) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.case-theme-page::before {
+  display: none !important;
+}
+
+.case-theme-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.case-theme-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 78%);
+}
+
+.case-theme-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 12%, rgba(188, 168, 255, 0.38) 0 1px, transparent 3px),
+    radial-gradient(circle at 86% 26%, rgba(255, 255, 255, 0.2) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 72%, rgba(127, 231, 217, 0.25) 0 1px, transparent 3px),
+    radial-gradient(circle at 26% 82%, rgba(255, 255, 255, 0.16) 0 1px, transparent 2px);
+  filter: drop-shadow(0 0 12px rgba(188, 168, 255, 0.45));
+  opacity: 0.85;
+}
+
+.case-theme-orb {
+  position: absolute;
+  width: 52rem;
+  height: 52rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(188, 168, 255, 0.16), transparent 62%);
+  transform: translate(calc(var(--case-mouse-x) - 26rem), calc(var(--case-mouse-y) - 26rem));
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-theme-nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 80;
+  display: grid;
+  width: min(1160px, calc(100% - 96px));
+  min-height: 58px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  transform: translateX(-50%);
+  border: 1px solid var(--case-line-strong);
+  border-radius: 999px;
+  background: rgba(9, 9, 18, 0.62);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.case-theme-nav a,
+.case-theme-nav span {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  color: var(--case-text);
+  text-decoration: none;
+}
+
+.case-theme-home,
+.case-theme-contact {
+  margin: 0 10px;
+  gap: 8px;
+  border: 1px solid var(--case-line-strong);
+  border-radius: 999px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 650;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.case-theme-home {
+  justify-self: start;
+}
+
+.case-theme-contact {
+  justify-self: end;
+}
+
+.case-theme-title {
+  color: var(--case-muted) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-theme-home:hover,
+.case-theme-contact:hover {
+  border-color: rgba(220, 208, 255, 0.82);
+  background: #efe6ff;
+  color: #111019 !important;
+  transform: translateY(-1px);
+}
+
+body.case-theme-page > :not(.case-theme-backdrop):not(.case-theme-nav) {
+  position: relative;
+  z-index: 1;
+}
+
+body.case-theme-page * {
+  border-color: var(--case-line);
+  color: var(--case-text);
+}
+
+.page-shell,
+.shell,
+.project-card {
+  width: min(1700px, calc(100% - 96px)) !important;
+}
+
+.page-shell,
+.shell {
+  margin-top: 104px !important;
+}
+
+.project-card {
+  margin-top: 104px !important;
+}
+
+.hero,
+.section,
+.hero-card,
+.section-card,
+.project-card,
+.hero-copy,
+.hero-panel,
+.story-card,
+.skill-card,
+.diagram-card,
+.workflow-shell,
+.artifact-card,
+.takeaway-grid article,
+.repo-card,
+.doc-link,
+.meta-box,
+.kpi,
+.mini-box,
+.overview,
+.active-panel,
+.viewer-card,
+.preview-paper,
+.preview-summary,
+.preview-toc,
+.preview-body section,
+.render-preview,
+.review-grid > *,
+.workflow-demo {
+  border-color: var(--case-line) !important;
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.065), transparent 44%),
+    var(--case-panel) !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28) !important;
+  backdrop-filter: blur(18px) saturate(1.12);
+}
+
+.hero,
+.hero-card,
+.project-card {
+  border-radius: 8px !important;
+}
+
+.section,
+.section-card,
+.hero-copy,
+.hero-panel,
+.story-card,
+.skill-card,
+.diagram-card,
+.workflow-shell,
+.artifact-card,
+.takeaway-grid article,
+.repo-card,
+.doc-link,
+.meta-box,
+.kpi,
+.mini-box,
+.active-panel,
+.viewer-card,
+.preview-paper,
+.preview-summary,
+.preview-toc,
+.preview-body section {
+  border-radius: 8px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand,
+.brand-text,
+.metric-number,
+.section-title,
+.active-panel-head h3,
+.preview-paper h2 {
+  color: var(--case-text) !important;
+  letter-spacing: 0 !important;
+}
+
+p,
+li,
+.summary,
+.subtitle,
+.description,
+.body-copy,
+.hero-summary,
+.workflow-intro,
+.render-note,
+.preview-subtitle,
+.cta-note,
+.entry-value,
+.doc-desc,
+.metric-label {
+  color: var(--case-muted) !important;
+}
+
+.eyebrow,
+.panel-label,
+.workflow-label,
+.meta-label,
+.active-tab-name,
+.preview-eyebrow,
+.section-title + p,
+.mini-pill,
+.tag,
+.hero-tags li,
+.stack-tags span,
+.entry-label,
+.doc-name {
+  color: var(--case-accent) !important;
+}
+
+.button,
+.cta,
+.github-link,
+.tab-button,
+.entry-pill,
+.doc-link {
+  border-color: var(--case-line-strong) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: var(--case-text) !important;
+  text-decoration: none !important;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.button:hover,
+.cta:hover,
+.github-link:hover,
+.tab-button:hover,
+.entry-pill:hover,
+.doc-link:hover {
+  border-color: rgba(220, 208, 255, 0.82) !important;
+  background: #efe6ff !important;
+  color: #111019 !important;
+  transform: translateY(-1px);
+}
+
+.button.primary,
+.tab-button.is-active {
+  border-color: rgba(220, 208, 255, 0.82) !important;
+  background: linear-gradient(180deg, #f0e8ff, #bda8ff) !important;
+  color: #111019 !important;
+}
+
+.topbar {
+  border-color: var(--case-line-strong) !important;
+  background: rgba(9, 9, 18, 0.48) !important;
+  backdrop-filter: blur(16px);
+}
+
+.brand-mark {
+  background: linear-gradient(180deg, #f0e8ff, #bda8ff) !important;
+  color: #111019 !important;
+}
+
+pre,
+code,
+.code-block {
+  color: rgba(247, 246, 255, 0.88) !important;
+  background: rgba(5, 6, 13, 0.42) !important;
+}
+
+.diagram-card,
+.diagram-step,
+.architecture-notes article {
+  border: 1px solid var(--case-line) !important;
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.055), transparent 48%),
+    rgba(8, 10, 22, 0.82) !important;
+  color: var(--case-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+}
+
+.diagram-card {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(127, 231, 217, 0.1), transparent 18rem),
+    rgba(7, 9, 20, 0.72) !important;
+}
+
+.diagram-step {
+  border-radius: 8px !important;
+}
+
+.diagram-step div,
+.architecture-notes p {
+  color: var(--case-muted) !important;
+}
+
+.diagram-arrow {
+  background: linear-gradient(180deg, var(--case-accent), rgba(127, 231, 217, 0.28)) !important;
+  opacity: 0.78;
+}
+
+::selection {
+  background: rgba(188, 168, 255, 0.34);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-theme-orb {
+    transition: none;
+  }
+}

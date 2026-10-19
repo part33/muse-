@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" role="img" aria-label="Design preflight workflow visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15102a"/>
+      <stop offset=".52" stop-color="#091017"/>
+      <stop offset="1" stop-color="#12271f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".58" cy=".42" r=".62">
+      <stop offset="0" stop-color="#d8c5ff" stop-opacity=".48"/>
+      <stop offset=".44" stop-color="#7fe7d9" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#05070d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8c5ff"/>
+      <stop offset="1" stop-color="#7fe7d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="820" fill="url(#bg)"/>
+  <rect width="960" height="820" fill="url(#glow)"/>
+  <g opacity=".22" stroke="#fff" stroke-width="1">
+    <path d="M84 180h792M84 315h792M84 450h792M84 585h792"/>
+    <path d="M184 92v638M346 92v638M508 92v638M670 92v638M832 92v638"/>
+  </g>
+  <g fill="none" stroke="url(#line)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M204 424h128l78-92 108 178 100-132h138" stroke-width="10"/>
+    <path d="M228 230h504" stroke-width="3" opacity=".55"/>
+    <path d="M228 594h504" stroke-width="3" opacity=".38"/>
+  </g>
+  <g>
+    <rect x="152" y="174" width="210" height="112" rx="18" fill="#0b1020" stroke="#d8c5ff" stroke-opacity=".48"/>
+    <rect x="375" y="174" width="210" height="112" rx="18" fill="#0b1020" stroke="#7fe7d9" stroke-opacity=".45"/>
+    <rect x="598" y="174" width="210" height="112" rx="18" fill="#0b1020" stroke="#d8c5ff" stroke-opacity=".48"/>
+    <text x="194" y="235" fill="#f4eeff" font-family="Arial, sans-serif" font-size="24" font-weight="700">CLARIFY</text>
+    <text x="424" y="235" fill="#f4eeff" font-family="Arial, sans-serif" font-size="24" font-weight="700">COMPARE</text>
+    <text x="656" y="235" fill="#f4eeff" font-family="Arial, sans-serif" font-size="24" font-weight="700">SPEC</text>
+  </g>
+  <g fill="#f4eeff">
+    <circle cx="332" cy="424" r="13"/>
+    <circle cx="410" cy="332" r="13"/>
+    <circle cx="518" cy="510" r="13"/>
+    <circle cx="618" cy="378" r="13"/>
+  </g>
+  <g>
+    <rect x="198" y="650" width="564" height="54" rx="27" fill="#0b1020" stroke="#d8c5ff" stroke-opacity=".38"/>
+    <text x="238" y="686" fill="#7fe7d9" font-family="Arial, sans-serif" font-size="22" font-weight="700">DESIGN PREFLIGHT / SCOPE / DECISION TRACE</text>
+  </g>
+</svg>

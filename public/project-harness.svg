@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" role="img" aria-label="Coding harness visual">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111c24"/>
+      <stop offset=".62" stop-color="#061012"/>
+      <stop offset="1" stop-color="#0f2d2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="820" fill="url(#b)"/>
+  <g opacity=".42" stroke="#e4fff9" stroke-width="1">
+    <path d="M80 160h800M80 260h800M80 360h800M80 460h800M80 560h800M80 660h800"/>
+    <path d="M160 90v640M280 90v640M400 90v640M520 90v640M640 90v640M760 90v640"/>
+  </g>
+  <rect x="142" y="150" width="676" height="520" fill="#05090b" stroke="#dffff9" stroke-opacity=".16"/>
+  <rect x="178" y="190" width="250" height="42" fill="#7fe7d9" opacity=".18"/>
+  <rect x="178" y="258" width="520" height="22" fill="#eafffb" opacity=".18"/>
+  <rect x="178" y="306" width="430" height="22" fill="#eafffb" opacity=".12"/>
+  <rect x="178" y="354" width="575" height="22" fill="#eafffb" opacity=".16"/>
+  <rect x="178" y="456" width="604" height="132" fill="#0d181b" stroke="#7fe7d9" stroke-opacity=".32"/>
+  <path d="M222 522h130l54-38 70 72 82-102 86 68h94" fill="none" stroke="#7fe7d9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="406" cy="484" r="10" fill="#dffff9"/>
+  <circle cx="558" cy="454" r="10" fill="#dffff9"/>
+  <circle cx="644" cy="522" r="10" fill="#dffff9"/>
+  <text x="178" y="635" fill="#7fe7d9" font-family="Arial, sans-serif" font-size="24" font-weight="700">TOKEN BUDGET / ROUTING / SKILLS</text>
+</svg>
